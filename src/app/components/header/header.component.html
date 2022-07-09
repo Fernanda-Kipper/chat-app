@@ -1,0 +1,16 @@
+<header>
+  <p>Talk it!</p>
+  <button (click)="handleOpen()">
+    <img src="{{ user.photoURL }}"/>
+  </button>
+  <div class="nav" *ngIf="isUserOpen">
+    <div class="nav-header">
+      <img src="{{ user.photoURL }}"/>
+    </div>
+    <div class="nav-body">
+      <p>{{ user.displayName }}</p>
+      <span>{{ user.email }}</span>
+      <button (click)="handleLogout()">Logout</button>
+    </div>
+  </div>
+</header>
