@@ -10,3 +10,10 @@ html, body {
   width: 100vw;
   overflow: hidden;
 }
+
+body {
+  background-image: url('./assets/img/background.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
