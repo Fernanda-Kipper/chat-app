@@ -3,14 +3,14 @@
   <div class="chat-container" id="chat-container">
     <div class="message-container" *ngFor="let message of messages">
       <div *ngIf="message.uid===user.uid" class="message self">
-        <img [src]="message.photoURL"/>
+        <img [src]="message.photoURL" referrerpolicy=“no-referrer”/>
         <div class="message-content">
           <span>{{ message.username }}</span>
           <p>{{ message.text }}</p>
         </div>
       </div>
       <div *ngIf="message.uid!=user.uid" class="message other">
-        <img [src]="message.photoURL"/>
+        <img [src]="message.photoURL" referrerpolicy=“no-referrer”/>
         <div class="message-content">
           <span>{{ message.username }}</span>
           <p>{{ message.text }}</p>
