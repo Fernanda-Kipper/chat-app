@@ -29,6 +29,17 @@
         outline: none;
       }
     }
+
+    button {
+      background-image: url('../../../assets/img/send.svg');
+      background-color: transparent;
+      background-position: center;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      border: none;
+    }
   }
 }
 
@@ -67,6 +78,10 @@
           align-items: flex-end;
           flex-direction: column;
           margin-right: 8px;
+
+          p {
+            text-align: end;
+          }
         }
       }
     }
