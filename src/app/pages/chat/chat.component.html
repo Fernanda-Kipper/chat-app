@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="wrapper">
-  <div class="chat-container">
+  <div class="chat-container" id="chat-container">
     <div class="message-container" *ngFor="let message of messages">
       <div *ngIf="message.uid===user.uid" class="message self">
         <img [src]="message.photoURL"/>
@@ -19,7 +19,13 @@
     </div>
   </div>
   <form class="form-wrapper" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
-    <input placeholder="Digite sua mensagem" name="message" ngModel required #first="ngModel"/>
-    <button type="submit">send</button>
+    <input
+      placeholder="Digite sua mensagem"
+      name="message"
+      ngModel
+      required
+      #first="ngModel"
+    />
+    <button type="submit"></button>
   </form>
 </div>

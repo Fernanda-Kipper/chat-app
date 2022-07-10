@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { User } from 'src/app/shared/services/user';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import * as fs from 'firebase/firestore';
 import { NgForm } from '@angular/forms';
+
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { User } from 'src/app/shared/services/user';
 
 interface Message {
   photoURL: string,
@@ -22,6 +23,7 @@ export class ChatComponent implements OnInit {
   user!: User;
   messages!: Message[]
   collectionRef!: AngularFirestoreCollection
+  chatContainer!: HTMLElement
 
   constructor(
     private authService: AuthService,
@@ -32,13 +34,21 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const element = document.getElementById('chat-container')
+    if(element) this.chatContainer = element
+
     this.collectionRef = this.db.collection<Message>('messages', ref => ref.orderBy('createdAt'));
     this.collectionRef.valueChanges().subscribe(
-      val => this.messages = val as Message[]
+      val => {
+        this.messages = val as Message[]
+        setTimeout(() => {
+          this.scrollToBottom()
+        }, 500)
+      }
     )
   }
 
-  handleSubmitMessage(text: string){
+  sendMessage(text: string){
     this.db.collection('messages').add({
       text,
       createdAt: fs.serverTimestamp(),
@@ -48,8 +58,14 @@ export class ChatComponent implements OnInit {
     }).then(res => console.log(res))
   }
 
+  scrollToBottom(){
+    this.chatContainer.scroll({ top: this.chatContainer.scrollHeight })
+  }
+
   onSubmit(event: NgForm){
-    this.handleSubmitMessage(event.value.message)
-    event.form.clearValidators()
+    if(!event.value.message) return
+    this.sendMessage(event.value.message)
+    this.scrollToBottom()
+    event.reset()
   }
 }
