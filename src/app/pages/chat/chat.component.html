@@ -1,1 +1,25 @@
 <app-header></app-header>
+<div class="wrapper">
+  <div class="chat-container">
+    <div class="message-container" *ngFor="let message of messages">
+      <div *ngIf="message.uid===user.uid" class="message self">
+        <img [src]="message.photoURL"/>
+        <div class="message-content">
+          <span>{{ message.username }}</span>
+          <p>{{ message.text }}</p>
+        </div>
+      </div>
+      <div *ngIf="message.uid!=user.uid" class="message other">
+        <img [src]="message.photoURL"/>
+        <div class="message-content">
+          <span>{{ message.username }}</span>
+          <p>{{ message.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="input-wrapper">
+    <input placeholder="Digite sua mensagem"/>
+    <img src="../../../assets/img/send.svg"/>
+  </div>
+</div>
