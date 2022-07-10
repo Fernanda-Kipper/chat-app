@@ -1,18 +1,18 @@
 <h1 align="center"><img align="center" src="./src/assets/img/logo.svg" width="300"></h1>
+<h2 align="center">Version 2</h2>
 
 <p align="center">
  <a href="#clone">Clone</a> • 
   <a href="#contribute">Contribute</a> •
- <a href="#license">License</a>•
- <a href="https://live-chat-one.vercel.app/">Visit site</a>
+ <a href="#license">License</a>
 </p>
 
 <p align="center">
 <b>Single-channel Live Chat built in Angular using Firebase integration, which users can log in with their Google account and chat with everyone online!</b>
 </p>
 <p align="center">
-  <img src="Talkit!.png" width="400px">
-  <img src="https://user-images.githubusercontent.com/61896274/133098484-1c3c52a5-93a6-441b-b62e-420c7d423bcf.png" width="400px">
+  <img src="./src/assets/github/login.png" width="400px">
+  <img src="./src/assets/github/chat.png" width="400px">
 </p>
 
 <h2 id="clone">Clone</h2>
@@ -26,11 +26,11 @@
 <h4>Starting</h4>
 
 ```
-git clone https://github.com/Fernanda-Kipper/LiveChat.git
+git clone https://github.com/Fernanda-Kipper/chat-app.git
 cd chat-app
 npm install
 ng serve
-$OPEN http://localhost:3000
+$OPEN http://localhost:4200
 ```
 
 ### Atention 🛑
@@ -42,11 +42,17 @@ It is not recommended to store your API access keys on the client side, in this 
 If you want to contribute, clone this repo, create your work branch and get your hands dirty!
 
 ```bash
-git clone https://github.com/Fernanda-Kipper/LiveChat.git
+git clone https://github.com/Fernanda-Kipper/chat-app.git
 git checkout -b feature/NAME
 ```
 
- At the end, open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
+After development
+
+```bash
+git push origin feature/NAME
+```
+
+ And then, open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
 
 [How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
 
