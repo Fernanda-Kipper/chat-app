@@ -1,5 +1,5 @@
-<h1 align="center"><img align="center" src="./src/assets/img/logo.svg" width="300"></h1>
-<h2 align="center">Version 2</h2>
+<h1 align="center">Talk It!</h1>
+<h3 align="center">Version 2</h3>
 
 <p align="center">
  <a href="#clone">Clone</a> • 
