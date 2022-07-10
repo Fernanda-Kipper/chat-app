@@ -7,7 +7,8 @@
   flex-direction: column;
 
   .form-wrapper {
-    width: 80%;
+    width: 90%;
+    max-width: 800px;
     padding: 4px;
     font-size: 16px;
     background-color: rgba(255,255,255,0.90);
@@ -47,7 +48,8 @@
   background-color: white;
   border-radius: 8px 8px 0 0;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
+  max-width: 800px;
   height: 70%;
 
   display: flex;
