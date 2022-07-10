@@ -35,7 +35,7 @@ $OPEN http://localhost:4200
 
 ### Atention 🛑
 
-It is not recommended to store your API access keys on the client side, in this project the angular environment configs were used strictly for study and practice, but in production mode this practice is not recommended
+It is not recommended to store your API access keys on the client side, but in this project the angular environment configs were used together with Firebase SDK as recommended on the documentation, cause on the contrary, how API keys are commonly used, as API keys for Firebase are not used to control access to backend resources. If you want to know more about management of Firebase Keys, [read this article](https://firebase.google.com/docs/projects/api-keys).
 
 <h2 id="contribute">Contribute 🚀</h2>
 
