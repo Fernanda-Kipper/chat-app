@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/services/user';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import * as fs from 'firebase/firestore';
+import { NgForm } from '@angular/forms';
 
 interface Message {
   photoURL: string,
@@ -20,6 +21,7 @@ export class ChatComponent implements OnInit {
 
   user!: User;
   messages!: Message[]
+  collectionRef!: AngularFirestoreCollection
 
   constructor(
     private authService: AuthService,
@@ -30,7 +32,8 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.db.collection('messages').valueChanges().subscribe(
+    this.collectionRef = this.db.collection<Message>('messages', ref => ref.orderBy('createdAt'));
+    this.collectionRef.valueChanges().subscribe(
       val => this.messages = val as Message[]
     )
   }
@@ -42,6 +45,11 @@ export class ChatComponent implements OnInit {
       uid: this.user.uid,
       photoURL: this.user.photoURL,
       username: this.user.displayName
-    })
+    }).then(res => console.log(res))
+  }
+
+  onSubmit(event: NgForm){
+    this.handleSubmitMessage(event.value.message)
+    event.form.clearValidators()
   }
 }

@@ -18,8 +18,8 @@
       </div>
     </div>
   </div>
-  <div class="input-wrapper">
-    <input placeholder="Digite sua mensagem"/>
-    <img src="../../../assets/img/send.svg"/>
-  </div>
+  <form class="form-wrapper" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+    <input placeholder="Digite sua mensagem" name="message" ngModel required #first="ngModel"/>
+    <button type="submit">send</button>
+  </form>
 </div>
